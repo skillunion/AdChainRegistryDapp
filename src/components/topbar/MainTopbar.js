@@ -133,7 +133,6 @@ class MainTopbar extends Component {
   async updateBalance () {
     try {
       const adtBalance = await token.getBalance()
-
       this.setState({
         adtBalance: (adtBalance | 0) // coerce
       })
