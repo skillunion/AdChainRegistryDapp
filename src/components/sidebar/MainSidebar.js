@@ -4,17 +4,17 @@ import { withRouter } from 'react-router-dom'
 import PubSub from 'pubsub-js'
 import isMobile from 'is-mobile'
 
-import SideBarApplicationContainer from './SideBarApplicationContainer'
-import adchainPublisherLogo from '../assets/adchain_publisher_logo.svg'
-import metaxLogo from '../assets/white_text_metax_logo.svg'
-import adtokenLogo from '../assets/adtoken_logo_white.png'
+//import SideBarApplicationContainer from './SideBarApplicationContainer'
+//import adchainPublisherLogo from '../assets/adchain_publisher_logo.svg'
+//import metaxLogo from '../assets/white_text_metax_logo.svg'
+//import adtokenLogo from '../assets/adtoken_logo_white.png'
 import wwwLogo from '../assets/WWW.svg'
-import dashboardLogo from '../assets/DASHBOARD.svg'
-import helpLogo from '../assets/HELP.svg'
-import parametersLogo from '../assets/PARAMETERS.svg'
-import socialLogo from '../assets/SOCIALS (OPEN).svg'
-import toolsLogo from '../assets/TOOLS.svg'
-import RegistryGuideModal from '../registry_guide/RegistryGuideModal'
+// import dashboardLogo from '../assets/DASHBOARD.svg'
+// import helpLogo from '../assets/HELP.svg'
+// import parametersLogo from '../assets/PARAMETERS.svg'
+// import socialLogo from '../assets/SOCIALS (OPEN).svg'
+// import toolsLogo from '../assets/TOOLS.svg'
+//import RegistryGuideModal from '../registry_guide/RegistryGuideModal'
 
 import './MainSidebar.css'
 
@@ -43,80 +43,81 @@ class MainSidebar extends Component {
   }
 
   componentDidMount () {
-    window.google.translate.TranslateElement({ pageLanguage: 'en', layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element')
+    console.log('componentDidMount');
+    //window.google.translate.TranslateElement({ pageLanguage: 'en', layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element')
   }
 
   render () {
     const Link = this._Link
-    const { activeIndex } = this.state
+    //const { activeIndex } = this.state
 
-    const ToolsLinks = (
-      <ul style={{listStyle: 'none'}}>
-        <li>
-        <Link to='/index' activeClassName='active'>adChain Index</Link>
-        </li>
-      </ul>
-    )
+    // const ToolsLinks = (
+    //   <ul style={{listStyle: 'none'}}>
+    //     <li>
+    //     <Link to='/index' activeClassName='active'>adChain Index</Link>
+    //     </li>
+    //   </ul>
+    // )
 
-    const HelpOptions = (
-      <ul style={{listStyle: 'none'}}>
-        <li>
-          <Link to='/' onClick={() => PubSub.publish('WelcomeModal.open')} activeClassName='active'>Welcome</Link>
-        </li>
-        <li>
-          <Link to='/domains' onClick={() => PubSub.publish('RegistryGuideModal.show')} activeClassName='active'>View Guides</Link>
-        </li>
-        <li>
-          <a href='https://metax.zendesk.com/hc/en-us' target='_blank' rel='noopener noreferrer'>Help Center</a>
-        </li>
-        <li>
-          <a href='https://goo.gl/forms/px9fgyKhFrZDjBV42' target='_blank' rel='noopener noreferrer'>Submit Feedback</a>
-        </li>
-      </ul>
-    )
+    // const HelpOptions = (
+    //   <ul style={{listStyle: 'none'}}>
+    //     <li>
+    //       <Link to='/' onClick={() => PubSub.publish('WelcomeModal.open')} activeClassName='active'>Welcome</Link>
+    //     </li>
+    //     {/* <li>
+    //       <Link to='/domains' onClick={() => PubSub.publish('RegistryGuideModal.show')} activeClassName='active'>View Guides</Link>
+    //     </li> */}
+    //     <li>
+    //       <a href='https://metax.zendesk.com/hc/en-us' target='_blank' rel='noopener noreferrer'>Help Center</a>
+    //     </li>
+    //     <li>
+    //       <a href='https://goo.gl/forms/px9fgyKhFrZDjBV42' target='_blank' rel='noopener noreferrer'>Submit Feedback</a>
+    //     </li>
+    //   </ul>
+    // )
 
-    const SocialLinks = (
-      <ul style={{listStyle: 'none'}}>
-        <li>
-          <a href='https://t.me/adChain' target='_blank' rel='noopener noreferrer'>Telegram</a>
-        </li>
-        <li>
-          <a href='https://twitter.com/ad_chain' target='_blank' rel='noopener noreferrer'>Twitter</a>
-        </li>
-        <li>
-          <a href='https://medium.com/@adchain' target='_blank' rel='noopener noreferrer'>Medium</a>
-        </li>
-        <li>
-          <a href='https://github.com/adchain' target='_blank' rel='noopener noreferrer'>GitHub</a>
-        </li>
-        <li>
-          <a href='https://reddit.com/r/adchain' target='_blank' rel='noopener noreferrer'>Reddit</a>
-        </li>
-      </ul>
-    )
+    // const SocialLinks = (
+    //   <ul style={{listStyle: 'none'}}>
+    //     <li>
+    //       <a href='https://t.me/adChain' target='_blank' rel='noopener noreferrer'>Telegram</a>
+    //     </li>
+    //     <li>
+    //       <a href='https://twitter.com/ad_chain' target='_blank' rel='noopener noreferrer'>Twitter</a>
+    //     </li>
+    //     <li>
+    //       <a href='https://medium.com/@adchain' target='_blank' rel='noopener noreferrer'>Medium</a>
+    //     </li>
+    //     <li>
+    //       <a href='https://github.com/adchain' target='_blank' rel='noopener noreferrer'>GitHub</a>
+    //     </li>
+    //     <li>
+    //       <a href='https://reddit.com/r/adchain' target='_blank' rel='noopener noreferrer'>Reddit</a>
+    //     </li>
+    //   </ul>
+    // )
 
     return (
       <Accordion as={Menu} vertical inverted className='MainSidebar sidebar visible overflow-y borderless'>
-        <div className='adChainLogo ui image'>
+        {/* <div className='adChainLogo ui image'>
           <a href='/'>
             <object className='adchainPublisherLogo' type='image/svg+xml' data={adchainPublisherLogo} aria-label='adchainPublisherLogo' />
           </a>
-        </div>
+        </div> */}
         <div className={this.state.mobile ? 'hide': 'SidebarListContainer overflow-x'}>
           <div className='SidebarList overflow-y overflow-x'>
-            <div className='ListTitle ui header'>
+            {/* <div className='ListTitle ui header'>
               <RegistryGuideModal updateRoute={this.updateRoute} />
-            </div>
+            </div> */}
             <Menu.Item name='domain'>
-              <Link to='/domains' className='NavLink' activeClassName='active'><img src={wwwLogo} alt='www' />Domains</Link>
+              <Link to='/domains' className='NavLink' activeClassName='active'><img src={wwwLogo} alt='www' />Topics</Link>
             </Menu.Item>
-            <Menu.Item name='account'>
+            {/* <Menu.Item name='account'>
               <Link to='/account' className='NavLink' activeClassName='active'><img src={dashboardLogo} alt='dashboard' />My Dashboard</Link>
-            </Menu.Item>
-            <Menu.Item name='parameter'>
+            </Menu.Item> */}
+            {/* <Menu.Item name='parameter'>
               <Link to='/governance' className='NavLink' activeClassName='active'><img src={parametersLogo} alt='governance' />Governance</Link>
-            </Menu.Item>
-            <Menu.Item name='tools'>
+            </Menu.Item> */}
+            {/* <Menu.Item name='tools'>
               <Accordion.Title
                 id={1}
                 active={activeIndex === 1}
@@ -126,8 +127,8 @@ class MainSidebar extends Component {
                 <i aria-hidden='true' className={this.state.accordionArrow === 'social' ? this.state.toolsClicked ? 'dropdown icon AccordionArrowRotatedSocial' : 'dropdown icon AccordionArrow' : 'dropdown icon AccordionArrow'} />
               </Accordion.Title>
               <Accordion.Content active={activeIndex === 1} content={ToolsLinks} />
-            </Menu.Item>
-            <Menu.Item name='help'>
+            </Menu.Item> */}
+            {/* <Menu.Item name='help'>
               <Accordion.Title
                 id={2}
                 active={activeIndex === 2}
@@ -137,8 +138,8 @@ class MainSidebar extends Component {
                 <i aria-hidden='true' className={this.state.accordionArrow === 'help' ? this.state.helpClicked ? 'dropdown icon AccordionArrowRotatedHelp' : 'dropdown icon AccordionArrow' : 'dropdown icon AccordionArrow'} />
               </Accordion.Title>
               <Accordion.Content active={activeIndex === 2} content={HelpOptions} />
-            </Menu.Item>
-            <Menu.Item name='social'>
+            </Menu.Item> */}
+            {/* <Menu.Item name='social'>
               <Accordion.Title
                 id={3}
                 active={activeIndex === 3}
@@ -148,11 +149,11 @@ class MainSidebar extends Component {
                 <i aria-hidden='true' className={this.state.accordionArrow === 'social' ? this.state.socialClicked ? 'dropdown icon AccordionArrowRotatedSocial' : 'dropdown icon AccordionArrow' : 'dropdown icon AccordionArrow'} />
               </Accordion.Title>
               <Accordion.Content active={activeIndex === 3} content={SocialLinks} />
-            </Menu.Item>
+            </Menu.Item> */}
           </div>
         </div>
-        <SideBarApplicationContainer />
-        <div className='SidebarFooter'>
+        {/* <SideBarApplicationContainer /> */}
+        {/* <div className='SidebarFooter'>
           <div id='google_translate_element' />
           <div className='ReleaseCandidate'><a href='https://metax.zendesk.com/hc/en-us/articles/360003427494' target='_blank' rel='noopener noreferrer'>Release Candidate</a></div>
           <div className='PoweredBy'>
@@ -171,7 +172,7 @@ class MainSidebar extends Component {
             <p>© Copyright 2018 MetaXchain, Inc.</p>
             <p>All rights reserved.</p>
           </div>
-        </div>
+        </div> */}
       </Accordion>
     )
   }

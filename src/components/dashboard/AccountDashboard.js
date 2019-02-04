@@ -164,7 +164,7 @@ class AccountDashboard extends Component {
 
   async fetchWithdrawn () {
     try{
-      let withdrawn = await (await window.fetch(`${registryApiURL}/registry/domains?filter=withdrawn`)).json()
+      let withdrawn = await (await window.fetch(`${registryApiNEW}/registry/topics.json?filter=withdrawn`)).json()
       // Create a hash map of hashes so lookup is faster
       withdrawn = _.keyBy(withdrawn, 'domainHash')
       return withdrawn
@@ -182,7 +182,7 @@ class AccountDashboard extends Component {
     }
 
     try {
-      const response = await window.fetch(`${registryApiURL}/registry/domains?account=${account}&include=applied`)
+      const response = await window.fetch(`${registryApiNEW}/registry/topics.json?account=${account}&include=applied`)
       const data = await response.json()
       let appliedDomains = []
 
@@ -229,7 +229,7 @@ class AccountDashboard extends Component {
     }
 
     try {
-      const response = await window.fetch(`${registryApiURL}/registry/domains?account=${account}&include=challenged`)
+      const response = await window.fetch(`${registryApiNEW}/registry/topics.json?account=${account}&include=challenged`)
       const data = await response.json()
 
       for (let i = 0; i < data.length; i++) {

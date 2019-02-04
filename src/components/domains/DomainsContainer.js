@@ -8,8 +8,8 @@ import normalizeQueryObj from '../../utils/normalizeQueryObj'
 // import RegistryStatsbar from './RegistryStatsbar'
 // import AdtCalculator from '../AdtCalculator'
 import DomainsTable from './DomainsTable'
-import DomainsFilterPanel from './DomainsFilterPanel'
-import WelcomeModal from '../WelcomeModal'
+//import DomainsFilterPanel from './DomainsFilterPanel'
+//import WelcomeModal from '../WelcomeModal'
 import { AirSwap } from '../airswap/AirSwap'
 import RegistryGuideStaticChallenge from '../registry_guide/RegistryGuideStaticChallenge'
 import RegistryGuideStaticInRegistry from '../registry_guide/RegistryGuideStaticInRegistry'
@@ -17,7 +17,7 @@ import RegistryGuideStaticVoting from '../registry_guide/RegistryGuideStaticVoti
 import RegistryGuideStaticReveal from '../registry_guide/RegistryGuideStaticReveal'
 import RegistryGuideStaticDashboard from '../registry_guide/RegistryGuideStaticDashboard'
 import RegistryGuideStaticDomainsTable from '../registry_guide/RegistryGuideStaticDomainsTable'
-import DomainEmailNotifications from './DomainEmailNotifications'
+//import DomainEmailNotifications from './DomainEmailNotifications'
 import { registryApiURL } from '../../models/urls'
 import PubSub from 'pubsub-js'
 
@@ -122,8 +122,8 @@ class DomainsContainer extends Component {
           </div> */
           }
           <div className='column sixteen wide'>
-            <div className='ui grid stackable'>
-              <div className='column four wide NoPaddingRight'>
+            {/* <div className='ui grid stackable'> */}
+              {/* <div className='column four wide NoPaddingRight'>
                 {
                   (staticContainer === 'dashboard')
                     ? <RegistryGuideStaticDashboard />
@@ -134,7 +134,7 @@ class DomainsContainer extends Component {
                 }
                 <DomainEmailNotifications history={history} kind={kind} email={email} />
                 <AirSwap />
-              </div>
+              </div> */}
               {
                 (staticContainer === 'challenge')
                   ? <div className='column six wide'>
@@ -171,11 +171,11 @@ class DomainsContainer extends Component {
                                 />
                               </div>
               }
-            </div>
-            {
+            {/* </div> */}
+            {/* {
               // window.localStorage.returningUser === 'false' ? <WelcomeModal /> : null
             }
-            <WelcomeModal />
+            <WelcomeModal /> */}
           </div>
         </div>
       </div>

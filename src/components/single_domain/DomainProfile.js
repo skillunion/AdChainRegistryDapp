@@ -11,7 +11,7 @@ import DomainRedditBox from '../reddit/DomainRedditBox'
 import DomainProfileActionContainer from './DomainProfileActionContainer'
 import DomainProfileStageMap from './DomainProfileStageMap'
 import { Tabs, Tab, TabList, TabPanel } from 'react-tabs'
-import { registryApiURL } from '../../models/urls'
+import { registryApiURL, registryApiNEW } from '../../models/urls'
 import getDomainState from '../../utils/getDomainState'
 import DomainNeverAppliedContainer from './DomainNeverAppliedContainer'
 import './DomainProfile.css'
@@ -186,7 +186,7 @@ class DomainProfile extends Component {
       // If rejected --> Check to see if listing is withdrawn
       if (domainData.stage === 'rejected') {
         const getWithdrawn = async () => {
-          const withdrawn = await (await window.fetch(`${registryApiURL}/registry/domains?filter=withdrawn`)).json()
+          const withdrawn = await (await window.fetch(`${registryApiNEW}/registry/topics.json?filter=withdrawn`)).json()
           return withdrawn
         }
         // Logic and request to check if domain has been withdrawn

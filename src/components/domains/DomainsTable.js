@@ -12,7 +12,7 @@ import './DomainsTable.css'
 
 import PubSub from 'pubsub-js'
 import CountdownSnapshot from '../CountdownSnapshot'
-import { registryApiURL } from '../../models/urls'
+import { registryApiURL, registryApiNEW } from '../../models/urls'
 
 import store from '../../store'
 import registry from '../../services/registry'
@@ -445,7 +445,7 @@ class DomainsTable extends Component {
       }
 
       // Get withdrawn domains so we can later check the rejected domains to see if they're withrawn.
-      let withdrawn = await (await window.fetch(`${registryApiURL}/registry/domains?filter=withdrawn`)).json()
+      let withdrawn = await (await window.fetch(`${registryApiNEW}/registry/topics.json?filter=withdrawn`)).json()
       // Create a hash map of hashes so lookup is faster
       withdrawn = _.keyBy(withdrawn, 'domainHash')
 
@@ -456,7 +456,7 @@ class DomainsTable extends Component {
       }
 
       try {
-        domains = await (await window.fetch(`${registryApiURL}/registry/domains?${query}`)).json()
+        domains = await (await window.fetch(`${registryApiNEW}/registry/topics.json?${query}`)).json()
         if (!Array.isArray(domains)) {
           domains = []
         }
@@ -480,13 +480,13 @@ class DomainsTable extends Component {
     }
   }
 
-  async fetchNewData(topic, source, counter = 0) {
+  async fetchNewData (topic, source, counter = 0) {
     const { filters } = this.state
     const transactionInfo = source
     const currentNumDomains = Number(window.localStorage.getItem('TotalNumDomains'))
     let domains
     try {
-      domains = await (await window.fetch(`${registryApiURL}/registry/domains`)).json()
+      domains = await (await window.fetch(`${registryApiNEW}/registry/topics.json`)).json()
       if (!Array.isArray(domains)) {
         domains = []
       } else {

@@ -8,7 +8,7 @@ import isMobile from 'is-mobile'
 // import token from '../../services/token'
 import filterIcon from "../../components/assets/filter_icon.svg"
 import { Input } from 'semantic-ui-react'
-import { registryApiURL } from '../../models/urls'
+import { registryApiURL, registryApiNEW } from '../../models/urls'
 
 
 import './DomainsFilterPanel.css'
@@ -262,7 +262,7 @@ class DomainsFilterPanel extends Component {
     }
 
     try {
-      // let totalStaked = await (await window.fetch(`${registryApiURL}/registry/domains/stake/count`)).json()
+      // let totalStaked = await (await window.fetch(`${registryApiNEW}/registry/topics.json/stake/count`)).json()
       const {
         inRegistry,
         inApplication,
@@ -270,7 +270,7 @@ class DomainsFilterPanel extends Component {
         inReveal,
         rejected,
         withdrawn
-      } = await (await window.fetch(`${registryApiURL}/registry/domains/count`)).json()
+      } = await (await window.fetch(`${registryApiNEW}/registry/topics.json/count`)).json()
 
       if (this._isMounted) {
         this.setState({
